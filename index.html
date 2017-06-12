@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<link href="https://netdna.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+	<style type="text/css">
+		body{padding: 15px;}
+	</style>
+	<script src="js/angular.min.js"></script>
+	<script src="js/app.js"></script>
+	<script src="//angular-ui.github.io/bootstrap/ui-bootstrap-tpls-2.5.0.js"></script>
+</head>
+<body>
+	
+<div ng-app="myModule">
+	<strong>Directives:</strong>
+	ng-app, ng-model, ng-bind, bg-controller, ng-value, ng-show, ng-hide, bg-init,  bg-repeat, -ng-click, bg-disable, bg-required
+	<br><br>
+	//Ng bind<br>
+	<input type="text" ng-model="name">&nbsp; Hello! <span ng-bind="name"></span>
+	<br>
+	<br>
+	//ng-disabaled<br>
+	<input type="checkbox" name="" ng-model="checkboxdisable">
+	<button ng-disabled="checkboxdisable">Click Me</button>
+	<br>	
+	<br>
+	//ng-disabaled<br>
+	<input type="checkbox" name="" ng-model="showhide">
+	<button ng-hide="showhide">Click Me</button>
+	<br>	
+	<br>
+	//ng-Click/ bind - Increment--- {{clickcount}}<br>
+	<p>Total Click: <span ng-bind="clickcount"></span></p>
+	<button ng-click="clickcount = clickcount +1">Click Me</button>
+	<br>
+	<br>
+	<strong>//Expresstion</strong>
+	<div class="form">
+		<div class="row">
+			<div class="col-md-6">
+				<div class="form-group">
+					<input type="text" id="firstname" class="form-control" ng-model="firstname">
+				</div>
+				<div class="form-group">
+					<input type="text" id="lastname" class="form-control" ng-model="lastname">
+				</div>
+				<div class="form-group">
+					<input type="text" id="phone" class="form-control" ng-model="phone">
+				</div>
+				<div class="form-group">
+					<input type="text" id="message" class="form-control" ng-model="message">
+				</div>
+				<div class="form-group">
+					<button ng-click="total= firstname + ' ' + lastname + ' ' + phone+ ' ' + message">Submit</button>
+				</div>
+				<span>Total with expresstion: {{total}}</span><br>
+				Total bind function: <span ng-bind="total"></span>
+			</div>
+		</div>
+	</div>
+	<div ng-controller="listController">
+		{{message}}
+			<table class="table">
+				<thead>
+					<th>F name</th>
+					<th>L name</th>
+					<th>Gender</th>
+					<th>Age</th>
+				</thead>
+				<tbody ng-repeat="employe in employees">
+					<td>{{employe.firstname}}</td>
+					<td>{{employe.lastname}}</td>
+					<td>{{employe.gender}}</td>
+					<td>{{employe.age}}</td>
+				</tbody>
+			</table>
+	</div>
+
+</body>
+</html>
